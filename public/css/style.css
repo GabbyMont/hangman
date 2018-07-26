@@ -37,17 +37,17 @@ body {
 	text-transform: capitalize;
 	letter-spacing: 1.6px;
 	word-spacing: -2.4px;
-  background: linear-gradient(to right, red , yellow, magenta, cyan, blue, violet);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 60px;
-  line-height: 100px;
+	background: linear-gradient(to right, red , yellow, magenta, cyan, blue);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-size: 60px;
+	line-height: 100px;
 }
 
 .winbutton {
 	height: 30px;
     background: red;
-    background: linear-gradient(to right, red,orange, seagreen, blue, violet);
+    background: linear-gradient(to right, red ,orange, seagreen, blue, #A778FF);
 }
 
 ul {
@@ -60,27 +60,29 @@ ul {
 
 .navbar {
 	overflow: hidden;
-    background-color: #333;
+    background-color: black;
 }
 
 li {
     float: left;
     color: black;
     overflow: hidden;
-    background-color: #333;
+    background-color: black;
 }
 
 li a {
     float: left;
     display: block;
-    color: #f2f2f2;
+    color: lightgray;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 12px;
     text-decoration: none;
+    font-variant: small-caps;
+	text-transform: capitalize;
 }
 
 li a:hover {
-	background-color: #ddd;
+	background-color: violet;
     color: black;
 }
 
