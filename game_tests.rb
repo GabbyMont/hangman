@@ -2,51 +2,57 @@ require 'minitest/autorun'
 require_relative 'game.rb'
 
 class Hangman_test < Minitest::Test
-	def test_air_for_correct_guesses_winner
+	def test_air_for_a
   		word = "air"
-  		letter = ['a','p','i','e','r']
-   		assert_equal("You won", game(word,letter))
+  		letter = 'a'
+   		assert_equal(true, game(word,letter))
  	end
 
-    def test_sucker_for_all_correct_guesses
+    def test_sucker_for_k
     	word = "sucker"
-        letter = ["s",'e','k','u','c','r']
-        assert_equal("You won", game(word,letter))
+        letter = "k"
+        assert_equal(true, game(word,letter))
     end
 
-    def test_apples_for_all_correct_guesses
+    def test_apples_for_a
     	word = "apples"
-        letter = ['a','p','p','l','e','s']
-        assert_equal("You won", game(word,letter))
+        letter = 'a'
+        assert_equal(true, game(word,letter))
     end
 
-    def test_sucker_for_6_invalid_guesses
+    def test_sucker_for_o
         word = "sucker"
-        letter = ["s",'r','t','f','a','u','d','w','q']
-        assert_equal("You lose", game(word,letter))
+        letter = "o"
+        assert_equal(false, game(word,letter))
     end
 
-    def test_sucker_for_3_incorrect_3_correct
+    def test_sucker_for_s
     	word = "sucker"
-        letter = ["s",'q','k','t','y','r']
-        assert_equal("Correct letter. Keep guessing", game(word,letter))
+        letter = "s"
+        assert_equal(true, game(word,letter))
     end
 
-    def test_smiles_for_1_incorrect_5_correct
+    def test_smiles_for_s
     	word = "smiles"
-        letter = ["s",'q','m','e','l','i']
-        assert_equal("Correct letter. Keep guessing", game(word,letter))
+        letter = "s"
+        assert_equal(true, game(word,letter))
     end
 
-    def test_sucker_for_1_incorrect_5_correct
+    def test_sucker_for_m
     	word = "smiles"
-        letter = ["s",'q','m','e','l','i']
-        assert_equal("Correct letter. Keep guessing", game(word,letter))
+        letter = "m"
+        assert_equal(true, game(word,letter))
     end
 
-    def test_sucker_for_single_letter
+    def test_sucker_for_multiple_letters_in_single_str
     	word = "smiles"
-        letter = ["s"]
-        assert_equal("Correct letter. Keep guessing", game(word,letter))
+        letter = "es"
+        assert_equal(false, game(word,letter))
+    end
+
+    def test_hangman_returns_7_dashes
+        word = "hangman"
+        hidden_word_array = ["_", "_", "_", "_", "_", "_", "_"]
+        assert_equal(hidden_word_array, lines(word))
     end
 end

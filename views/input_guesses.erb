@@ -1,0 +1,19 @@
+<body ><center>
+<%picphotos = ["/img/image0.png","/img/image1.png","/img/image2.png","/img/image3.png","/img/image4.png","/img/image5.png","/img/image6.png"]%>
+
+
+<div class="hangmyman">
+    <img src= '<%=picphotos[session[:incorrect_guesses].length]%>'>
+</div>
+
+<h2>The hidden chosen word: <%=hidden_word_array.join(" ")%></h2>
+
+<form method="post" action="choose_letter">
+	<input type="hidden" name="hidden_word_array" value='<%=hidden_word_array%>'><br>
+<h3> Second Player choose a letter:</h3>
+<input type="text" name = "letter" maxlength="1" pattern="[A-Za-z]{1}" autofocus><br>
+<input class="button button-shadow" type="submit" value="Add"><br>
+</form>
+<h4>Incorrect Guesses: <%=incorrect_guesses.join(", ")%></h4>
+</center>
+</body>

@@ -1,24 +1,32 @@
-def game(word,letter)
-	str = []
-	letter_array = []
-	trashcan = []
-	new_array = []
-	result = ""
-	chosen_word = word.split(//)
-	letter.each do |l|
-		if chosen_word.include?(l) == true
-				letter_array << l
-				if chosen_word.length == letter_array.length
-					result = "You won"
-				else
-					result = "Correct letter. Keep guessing"
-				end  
-		else chosen_word.include?(l) == false
-			trashcan << l
-		  	if trashcan.length == 6
-				result = "You lose"
-			end
-		end
+def lines(word)
+	word = word.downcase
+	hidden_word_array = []
+	word_length = word.length
+	word_length.times do 
+		hidden_word_array << "_"
 	end
-	result
+	hidden_word_array
+end
+
+def update_hidden_word_arr(hidden_word_arr, word, letter)
+	word = word.downcase
+	letter = letter.downcase
+	counter = 0
+	incorrect_guesses = []
+	word.split("").each do |word_letter|
+	if word_letter == letter
+		hidden_word_arr[counter] = letter
+	end
+		counter += 1
+	end
+	hidden_word_arr
+end
+
+def update_incorrect_word_arr(incorrect_guesses, word, letter)
+	word = word.downcase
+	letter = letter.downcase
+	if word.split("").include?(letter) == false && incorrect_guesses.include?(letter) == false
+		incorrect_guesses << letter
+	end
+	incorrect_guesses
 end
