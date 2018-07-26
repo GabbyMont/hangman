@@ -3,7 +3,7 @@
 <h3>Player One input a word:</h3>
 
 <form method="post" action="choose_word">
-	<input type="password" name="chosen_word" autofocus required>
+	<input type="password" name="chosen_word" pattern="[A-Za-z]{5,}" autofocus required>
 </form>
  <button class="button button-shadow" onclick="window.location.href='choose_word'">Enter</button>
 </center>
